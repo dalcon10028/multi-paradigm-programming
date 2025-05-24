@@ -145,3 +145,19 @@ function* map2<A, B>(
 
 const mapped2 = map2((x) => x * 2, naturals(3));
 forEach(console.log, mapped2);
+
+console.log(DASH_LINE);
+
+function* filter<T>(
+  predicate: (value: T) => boolean,
+  iterable: Iterable<T>
+): IterableIterator<T> {
+  for (const a of iterable) {
+    if (predicate(a)) {
+      yield a;
+    }
+  }
+}
+
+const filtered = filter((x) => x % 2 === 0, naturals(10));
+console.log([...filtered]);
